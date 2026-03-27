@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToolsHub</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #3b82f6, transparent 40%),
+              radial-gradient(circle at bottom right, #6366f1, transparent 40%),
+              linear-gradient(135deg, #020617, #020617);
+  color: white;
+}
+
+/* HEADER */
+header {
+  margin: 20px;
+  padding: 15px 30px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-box {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #e2e8f0;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px 40px;
+}
+
+.hero p {
+  font-size: 28px;
+  background: linear-gradient(270deg, #38bdf8, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* TOOLS */
+.tools-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+  perspective: 1000px;
+}
+
+.tool-card {
+  width: 220px;
+  padding: 40px 20px;
+  border-radius: 24px;
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.5s;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: white;
+}
+
+.tool-card:hover {
+  transform: translateY(-15px) rotateX(10deg);
+  background: rgba(255,255,255,0.08);
+}
+
+/* VISUAL */
+.visual-box {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-top: 2px solid currentColor;
+  animation: spin 3s linear infinite;
+}
+
+.orbit::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 15px currentColor;
+}
+
+.inner-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+}
+
+/* ANIMATIONS */
+.calc-move { animation: float 3s infinite; }
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+.meter-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #00ff88;
+  animation: scan 2s linear infinite;
+}
+@keyframes scan {
+  0% { top: 20%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: 80%; opacity: 0; }
+}
+
+.comp-bounce { animation: bounce 2s infinite; }
+@keyframes bounce {
+  50% { transform: scale(1.2) rotate(5deg); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* COLORS */
+.blue { color: #00d2ff; }
+.green { color: #00ff88; }
+.orange { color: #ffb400; }
+.purple { color: #a855f7; }
+.pink { color: #ff4ecd; }
+
+h3 { margin-top: 15px; }
+p { font-size: 13px; color: #94a3b8; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div></div>
+  <div>
+    <input type="text" placeholder="Search tools..." class="search-box">
+    <nav style="display:inline;">
+      <a href="#">Home</a>
+      <a href="#">Tools</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <p>Fast, Easy & Free Tools for Everyone</p>
+</section>
+
+<section class="tools-container">
+
+<!-- AGE -->
+<a href="age calculator.html" class="tool-card blue">
+<div class="visual-box">
+<div class="orbit"></div>
+<div class="inner-circle">
+<i class="fas fa-user-clock calc-move"></i>
+</div>
+</div>
+<h3>Age Calculator</h3>
+<p>Calculate age instantly</p>
+</a>
+
+<!-- FILE -->
+<a href="file converter.html" class="tool-card purple">
+<div class="visual-box">
+<div class="orbit" style="animation-duration:2s;"></div>
+<div class="inner-circle">
+<i class="fas fa-file-alt comp-bounce"></i>
+</div>
+</div>
+<h3>File Converter</h3>
+<p>Convert files easily</p>
+</a>
+
+<!-- GST -->
+<a href="gst calculator.html" class="tool-card green">
+<div class="visual-box">
+<div class="orbit"></div>
+<div class="inner-circle">
+<i class="fas fa-calculator calc-move"></i>
+</div>
+</div>
+<h3>GST Calculator</h3>
+<p>Tax calculations</p>
+</a>
+
+<!-- IMAGE -->
+<a href="Image Compressor.html" class="tool-card pink">
+<div class="visual-box">
+<div class="orbit" style="animation-direction:reverse;"></div>
+<div class="inner-circle">
+<i class="fas fa-image comp-bounce"></i>
+</div>
+</div>
+<h3>Image Compressor</h3>
+<p>Reduce image size</p>
+</a>
+
+<!-- LOAN -->
+<a href="loan calculator.html" class="tool-card orange">
+<div class="visual-box">
+<div class="orbit" style="animation-duration:1.5s;"></div>
+<div class="inner-circle">
+<div class="meter-line"></div>
+<i class="fas fa-university"></i>
+</div>
+</div>
+<h3>Loan Calculator</h3>
+<p>EMI & loan planning</p>
+</a>
+
+</section>
+
+</body>
+</html>
